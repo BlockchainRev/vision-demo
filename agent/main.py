@@ -1,6 +1,10 @@
 import logging
 
 from dotenv import load_dotenv
+import os
+print("[env check] LIVEKIT_URL =", os.environ.get("LIVEKIT_URL"))
+
+# Force loading from the file in the agent directory
 from google.genai import types
 
 from livekit.agents import (
@@ -15,7 +19,7 @@ from livekit.plugins import google, noise_cancellation
 
 logger = logging.getLogger("vision-assistant")
 
-load_dotenv()
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"))
 
 
 class VisionAssistant(Agent):
@@ -63,6 +67,8 @@ If asked about yourself, you should identify yourself as "Viz", the helpful vide
 
 
 async def entrypoint(ctx: JobContext):
+    print("[debug] LIVEKIT_URL =", os.environ.get("LIVEKIT_URL"))
+    print("[debug] full ctx config =", ctx.config)
     await ctx.connect()
 
     session = AgentSession()

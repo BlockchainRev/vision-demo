@@ -7,12 +7,26 @@ struct AgentView: View {
     @Environment(\.colorScheme) private var colorScheme
 
     var body: some View {
-        ZStack {
-            if let agent = chatContext.agentParticipant {
-                AgentAudioVisualizer(agent: agent)
+        VStack(spacing: 16) {
+            ZStack {
+                if let agent = chatContext.agentParticipant {
+                    AgentAudioVisualizer(agent: agent)
+                } else {
+                    Circle()
+                        .fill(Color.accentColor)
+                        .frame(width: 96, height: 96)
+                    Text("M")
+                        .font(.system(size: 48, weight: .bold))
+                        .foregroundColor(.white)
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            Text("MAAX")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.accentColor)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black.ignoresSafeArea())
     }
 }
 
@@ -34,7 +48,7 @@ struct AgentAudioVisualizer: View {
                 if let track = agent.firstAudioTrack {
                     BarAudioVisualizer(
                         audioTrack: track,
-                        barColor: colorScheme == .dark ? .white : .black,
+                        barColor: Color.accentColor,
                         barCount: Int(barCount),
                         barSpacingFactor: barSpacingFactor,
                         barMinOpacity: 1
@@ -47,7 +61,7 @@ struct AgentAudioVisualizer: View {
                     }
 
                     Circle()
-                        .fill(colorScheme == .dark ? .white : .black)
+                        .fill(Color.accentColor)
                         .frame(width: barWidth, height: barWidth)
                         .opacity(animateVisualizer ? 0 : (pulse ? 1 : 0.2))
                         .animation(.easeInOut(duration: 0.5), value: animateVisualizer)
@@ -58,7 +72,7 @@ struct AgentAudioVisualizer: View {
                         }
                 } else {
                     Circle()
-                        .fill(colorScheme == .dark ? .white : .black)
+                        .fill(Color.accentColor)
                         .frame(width: barWidth, height: barWidth)
                         .opacity(pulse ? 1 : 0.2)
                         .animation(.easeInOut(duration: 0.5), value: pulse)

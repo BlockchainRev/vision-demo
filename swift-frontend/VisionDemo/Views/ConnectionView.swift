@@ -10,25 +10,34 @@ struct ConnectionView: View {
         if chatContext.isConnected {
             ChatView()
         } else {
-            VStack(spacing: 24) {
-                Text("LiveKit Vision Demo")
+            VStack(spacing: 32) {
+                Spacer()
+                
+                // MAAX avatar placeholder
+                ZStack {
+                    Circle()
+                        .fill(Color.accentColor)
+                        .frame(width: 96, height: 96)
+                    Text("M")
+                        .font(.system(size: 48, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                
+                Text("Hi, I'm MAAX!")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-
-                Text(
-                    "Talk to the Gemini Live API with realtime audio and video."
-                )
-                .multilineTextAlignment(.center)
-                .foregroundStyle(.secondary)
-                .padding(.horizontal)
-
+                    .foregroundColor(.accentColor)
+                
+                Text("Your friendly Medicare assistant. How can I help you today?")
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.secondary)
+                    .padding(.horizontal)
+                
                 Button(action: {
                     Task {
                         isConnecting = true
-
                         let roomName = "room-\(Int.random(in: 1000 ... 9999))"
                         let participantName = "user-\(Int.random(in: 1000 ... 9999))"
-
                         do {
                             if let connectionDetails = try await tokenService.fetchConnectionDetails(
                                 roomName: roomName,
@@ -47,20 +56,25 @@ struct ConnectionView: View {
                         isConnecting = false
                     }
                 }) {
-                    Text(isConnecting ? "Connecting..." : "Connect")
+                    Text(isConnecting ? "Connecting..." : "Start Chat")
                         .font(.headline)
                         .frame(maxWidth: 280)
+                        .padding()
+                        .background(Color.accentColor)
+                        .foregroundColor(.white)
+                        .cornerRadius(16)
+                        .shadow(radius: 4, y: 2)
                         .animation(.none, value: isConnecting)
                 }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
                 .disabled(isConnecting)
-
-                Link("View Source", destination: URL(string: "https://github.com/livekit-examples/vision-demo")!)
-                    .font(.caption)
-                    .padding(.top, 8)
+                
+                Spacer()
             }
             .padding()
+            .background(
+                Color.black
+                    .ignoresSafeArea()
+            )
         }
     }
 }
