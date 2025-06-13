@@ -33,7 +33,7 @@ struct ChatView: View {
             Spacer()
 
             // Subtitle
-            Text("MAAX is a Medicare voice assistant for agents.")
+            Text("MAAX is a Medicare voice assistant for agents.\nBy Samay")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
