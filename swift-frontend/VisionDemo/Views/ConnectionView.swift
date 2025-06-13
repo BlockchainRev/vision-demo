@@ -13,22 +13,22 @@ struct ConnectionView: View {
             VStack(spacing: 32) {
                 Spacer()
                 
-                // MAAX avatar placeholder
+                // CheckRx avatar placeholder
                 ZStack {
                     Circle()
                         .fill(Color.accentColor)
                         .frame(width: 96, height: 96)
-                    Text("M")
+                    Text("C")
                         .font(.system(size: 48, weight: .bold))
                         .foregroundColor(.white)
                 }
                 
-                Text("Hi, I'm MAAX!")
+                Text("Hi, I'm CheckRx!")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.accentColor)
                 
-                Text("Your friendly Medicare assistant. How can I help you today?")
+                Text("Your friendly pharmaceutical assistant. How can I help you today?")
                     .multilineTextAlignment(.center)
                     .foregroundColor(.secondary)
                     .padding(.horizontal)

@@ -409,7 +409,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VisionDemo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "LiveKit Vision";
+				INFOPLIST_KEY_CFBundleDisplayName = MiaAgent;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To see your beautiful face.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To hear your beautiful voice.";
@@ -452,7 +452,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VisionDemo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "LiveKit Vision";
+				INFOPLIST_KEY_CFBundleDisplayName = MiaAgent;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To see your beautiful face.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To hear your beautiful voice.";

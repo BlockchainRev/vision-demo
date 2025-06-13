@@ -9,18 +9,18 @@ struct ChatView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header with MAAX avatar and name
+            // Header with CheckRx avatar and name
             HStack(spacing: 16) {
                 Circle()
                     .fill(Color.accentColor)
                     .frame(width: 40, height: 40)
                     .overlay(
-                        Text("M")
+                        Text("C")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     )
-                Text("MAAX")
+                Text("CheckRx")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(.accentColor)
@@ -33,7 +33,7 @@ struct ChatView: View {
             Spacer()
 
             // Subtitle
-            Text("MAAX is a Medicare voice assistant for agents.\nBy Samay")
+            Text("CheckRx is a pharmaceutical assistant for agents.")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)

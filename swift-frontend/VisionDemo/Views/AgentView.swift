@@ -15,13 +15,13 @@ struct AgentView: View {
                     Circle()
                         .fill(Color.accentColor)
                         .frame(width: 96, height: 96)
-                    Text("M")
+                    Text("C")
                         .font(.system(size: 48, weight: .bold))
                         .foregroundColor(.white)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            Text("MAAX")
+            Text("CheckRx")
                 .font(.title2)
                 .fontWeight(.semibold)
                 .foregroundColor(.accentColor)
